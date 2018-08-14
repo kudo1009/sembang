@@ -9,19 +9,20 @@ default: &default
   
 development:
   <<: *default
-  database: berborak_development
+  database: bolehboleh_development
 
   
 
 test:
   <<: *default
-  database: berborak_test
+  database: bolehboleh_test
 
 
 production:
   <<: *default
-  database: berborak_production
-  username: berborak
-  password: <%= ENV['BERBORAK_DATABASE_PASSWORD'] %>
-  
+  database: bolehboleh_production
+  username: bolehboleh
+  password: <%= ENV['BOLEHBOLEH_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  database: mydatabase
  
