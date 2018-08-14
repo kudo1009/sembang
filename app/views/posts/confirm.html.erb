@@ -1,0 +1,21 @@
+<div class="main posts-new">
+  <div class="container">
+  <h1 class="form-heading">投稿内容を確認してください</h1>
+  <%= form_tag '/posts/create' do %>
+  <div class="form">
+    <div class="form-body">
+    <div class="field">
+      <%= @post.content %>
+      <%= hidden_field_tag :content, @post.content %>
+    </div>
+    <div class="actions">
+      <%= submit_tag '投稿する', name: 'send'%>
+    </div>
+    <div class="actions">
+      <%= submit_tag '戻る', name: 'back' %>
+    </div>
+    </div>
+    </div>
+　<% end %>
+　</div>
+</did>

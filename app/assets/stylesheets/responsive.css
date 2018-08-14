@@ -1,0 +1,31 @@
+/*スマホ用*/
+@media all and (max-width: 350px) {  
+  .form-heading h1 {
+    font-size: 15px;
+  }
+  header {
+    text-align: center;
+  }
+  .about-new {
+    width:100%;
+  }
+  .post-new {
+    width:100%;
+  }
+  .top-main h2 {
+    font-size: 24px;
+  }
+  .top-main p {
+    font-size: 24px;
+  }
+  .about-main h2 {
+    font-size: 24px;
+  }
+  .about-main p {
+    font-size: 12px;
+  }
+  .form input[type="submit"] {
+    width:50%;
+    font-size: 8px;
+  }
+}
