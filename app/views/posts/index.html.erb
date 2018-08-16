@@ -1,5 +1,5 @@
-<div class="main posts-index">
-  <div class="container">
+<div class="main posts-index row">
+  <div class="container col-md-6 ">
     <% @posts.each do |post| %>
       <div class="posts-index-item">
         <%= link_to(post.content, "/posts/#{post.id}") %>

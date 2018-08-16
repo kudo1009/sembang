@@ -1,8 +1,15 @@
 ja:
   activerecord:
     models:
-      post:
+      event:
+    attributes:ja:
+  activerecord:
+    models:
+      event: 
     attributes:
-      post:
-        name: 名前
+      event:
+        name:
+        place: 
         content: 投稿
+
+  
