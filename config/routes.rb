@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   
   resources :sessions, only: [:new, :create, :destroy]
-
   resources :users, only: [:new, :create, :show]
   
   get "posts/index" => "posts#index"
@@ -14,7 +13,7 @@ Rails.application.routes.draw do
   post "posts/:id/update" => "posts#update"
   post "posts/:id/destroy" => "posts#destroy"
   
-  root "/" => "home#top"
+  root "home#top"
   get "about" => "home#about"
   
 end
