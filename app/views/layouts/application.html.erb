@@ -15,15 +15,27 @@
         <%= link_to("BolehBoleh", "/",class: "btn btn-link" ) %>
       </div>
       <ul class="header-menus">
-        <li>
-          <%= link_to("BolehBolehとは", "/about",class: "btn btn-link") %>
-        </li>
-        <li>
-          <%= link_to("投稿一覧", "/posts/index",class: "btn btn-link") %>
-        </li>
-        <li>
-          <%= link_to("新規投稿", "/posts/new",class: "btn btn-link") %>
-        </li>
+        <% if logged_in? %>
+         <li>
+          <%= link_to("投稿一覧", "/posts/index") %>
+         </li>
+         <li>
+          <%= link_to("新規投稿", "/posts/new") %>
+         </li>
+         <li>
+          <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
+         </li>
+        <% else %>
+         <li>
+          <%= link_to("BolehBolehとは", "/about") %>
+         </li>
+         <li>
+          <%= link_to "新規登録", new_user_path %>
+         </li>
+         <li>
+          <%= link_to "ログイン", new_session_path %>
+         </li>
+        <% end %>
       </ul>
     </header>
     <% if flash[:notice] %>

@@ -54,3 +54,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rails-i18n'
 gem 'jquery-ui-rails' 
+gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'

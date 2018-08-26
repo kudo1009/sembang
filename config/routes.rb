@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  resources :sessions, only: [:new, :create, :destroy]
+
+  resources :users, only: [:new, :create, :show]
+  
   get "posts/index" => "posts#index"
   get "posts/new" => "posts#new"
   post "posts/confirm" => "posts#confirm"
