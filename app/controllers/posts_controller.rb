@@ -27,7 +27,7 @@ class PostsController < ApplicationController
     if params[:send]
       @post.save!
       flash[:notice] = "投稿を作成しました"
-      redirect_to index_post_path
+      redirect_to new_post_path
       return
     end
 
@@ -43,7 +43,7 @@ class PostsController < ApplicationController
     @post.content = params[:content]
     if @post.save
     flash[:notice] = "投稿を編集しました"
-    redirect_to index_post_path
+    redirect_to("/posts/index")
     else
     render("posts/edit")
     end
@@ -54,7 +54,7 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @post.destroy
     flash[:notice] = "投稿を削除しました"
-    redirect_to index_post_path
+  redirect_to("/posts/index")
   end
   
   def confirm

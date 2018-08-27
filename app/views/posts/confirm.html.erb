@@ -1,7 +1,7 @@
 <div class="main posts-new">
   <div class="container">
   <h1 class="form-heading">投稿内容を確認してください</h1>
-  <%= form_tag '/posts/create' do %>
+  <%= form_with(model: @post, url: posts_path, local: true) do |form| %>
   <div class="form">
     <div class="form-body">
     <div class="field">
