@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show]
   
   resources :posts, only: [:show, :edit, :update, :destroy]
-  
+  resources :posts do
+    collection do
+      post :confirm
+    end
+  end
   resource :post, only: [:index, :new, :create]
   
   
