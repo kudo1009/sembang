@@ -43,9 +43,9 @@ class PostsController < ApplicationController
     @post.content = params[:content]
     if @post.save
       flash[:notice] = "投稿を編集しました"
-      redirect_to("/posts#index")
+      redirect_to "/posts#index"
     else
-      render("posts#edit")
+      render "posts#edit"
     end
   end
 
@@ -60,9 +60,9 @@ class PostsController < ApplicationController
   def confirm
     @post = Post.new(params[:post])
     if @post.invalid?
-     render :action => "confirm"
+     render :action => "posts#confirm"
     else
-     render :action => "index"
+     render :action => "posts#index"
     end 
   end
   
