@@ -31,7 +31,7 @@ class PostsController < ApplicationController
       return
     end
 
-    render :confirm
+    render confirm_posts_path
   end
   
   def edit
