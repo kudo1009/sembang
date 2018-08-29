@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  
   def index
     @posts = Post.all.order(created_at: :desc)
   end
@@ -15,12 +16,12 @@ class PostsController < ApplicationController
     @post = Post.new(content: params[:content])
 
     if params[:back]
-      render new_post_path
+      render :new
       return
     end
 
     unless @post.valid?
-      render new_post_path
+      render :new
       return
     end
 
@@ -31,7 +32,7 @@ class PostsController < ApplicationController
       return
     end
 
-    render confirm_posts_path
+    render :confirm
   end
   
   def edit
@@ -45,7 +46,7 @@ class PostsController < ApplicationController
       flash[:notice] = "投稿を編集しました"
       redirect_to posts_path
     else
-      render edit_post
+      render :edit
     end
   end
 
@@ -60,9 +61,9 @@ class PostsController < ApplicationController
   def confirm
     @post = Post.new(params[:post])
     if @post.invalid?
-     render :action => confirm_posts_path
+     render :action => :confirm
     else
-     render :action => posts_path
+     render :action => :posts
     end 
   end
   
