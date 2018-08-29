@@ -15,19 +15,19 @@ class PostsController < ApplicationController
     @post = Post.new(content: params[:content])
 
     if params[:back]
-      render :new
+      render new_post_path
       return
     end
 
     unless @post.valid?
-      render :new
+      render new_post_path
       return
     end
 
     if params[:send]
       @post.save
       flash[:notice] = "投稿を作成しました"
-      redirect_to '/posts'
+      redirect_to posts_path
       return
     end
 
@@ -43,7 +43,7 @@ class PostsController < ApplicationController
     @post.content = params[:content]
     if @post.save
       flash[:notice] = "投稿を編集しました"
-      redirect_to "/posts"
+      redirect_to posts_path
     else
       render edit_post
     end
@@ -54,7 +54,7 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @post.destroy
     flash[:notice] = "投稿を削除しました"
-    redirect_to "/posts"
+    redirect_to posts_path
   end
   
   def confirm
@@ -62,7 +62,7 @@ class PostsController < ApplicationController
     if @post.invalid?
      render :action => "posts/confirm"
     else
-     render :action => "/posts"
+     render :action => posts_path
     end 
   end
   
