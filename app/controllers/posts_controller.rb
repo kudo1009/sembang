@@ -60,7 +60,7 @@ class PostsController < ApplicationController
   def confirm
     @post = Post.new(params[:post])
     if @post.invalid?
-     render :action => "posts/confirm"
+     render :action => confirm_posts_path
     else
      render :action => posts_path
     end 
