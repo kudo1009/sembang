@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user
   
   def index
     @posts = Post.all.order(created_at: :desc)
@@ -61,9 +62,9 @@ class PostsController < ApplicationController
   def confirm
     @post = Post.new(params[:post])
     if @post.invalid?
-     render :action => :confirm
+     render :confirm
     else
-     render :action => :posts
+     render :posts
     end 
   end
   
