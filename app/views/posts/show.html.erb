@@ -1,16 +1,31 @@
 <div class="main posts-show">
   <div class="container">
     <div class="posts-show-item">
+      <div class="post-user-name">
+        <%= link_to(@user.name,"/users/#{@user.id}") %>
+      </div>  
       <p>
         <%= @post.content %>
       </p>
       <div class="post-time">
         <%= @post.created_at %>
       </div>
-      <div class="post-menus">
+      <% unless @post.user_id == current_user.id %>
+       <% if @favorite.present? %>
+        <%= link_to 'お気に入りから外す', favorite_path(id: @favorite.id), method: :delete %>
+        <span class="fa fa-star notfavorite-btn"></span>
+       <% else %>
+        <%= link_to 'お気に入りに追加', favorites_path(post_id: @post.id), method: :post %>
+        <span class="fa fa-star favorite-btn"></span>
+       <% end %>
+      <% end %>
+      <%= @favorites_count %>
+      <% if @post.user_id == @current_user.id %>
+       <div class="post-menus">
         <%= link_to("編集", "/posts/#{@post.id}/edit") %>
         <%= link_to("削除", "/posts/#{@post.id}", {method: "DELETE"}) %>
-      </div>
+       </div>
+      <% end %>
     </div>
   </div>
 </div>

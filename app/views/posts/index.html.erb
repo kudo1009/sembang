@@ -2,7 +2,9 @@
   <div class="row">
     <% @posts.each do |post| %>
       <div class="posts-index-item col-md-6 col-xs-12">
-        <%= link_to(post.content, "/posts/#{post.id}",) %>
+        <div class="post-right">
+          <%= link_to(post.content, "/posts/#{post.id}",) %>
+        </div>  
       </div>
     <% end %>
   </div>

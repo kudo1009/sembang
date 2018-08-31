@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user
+  before_action :authenticate_user, only: [:new, :show, :edit]
   
   def index
     @posts = Post.all.order(created_at: :desc)
@@ -7,6 +7,9 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find_by(id: params[:id])
+    @user = @post.user
+    @favorite = current_user.favorites.find_by(post_id: @post.id)
+    @favorites_count = Favorite.where(post_id: @post.id).count
   end
   
   def new
@@ -14,7 +17,8 @@ class PostsController < ApplicationController
   end
   
   def create
-    @post = Post.new(content: params[:content])
+    @post = Post.new(content: params[:content],user_id: @current_user.id)
+    @post.user_id = current_user.id
 
     if params[:back]
       render :new
@@ -66,6 +70,14 @@ class PostsController < ApplicationController
     else
      render :posts
     end 
+  end
+  
+  def ensure_correct_user
+    @post = Post.find_by(id: params[:id])
+    if @post.user_id != @current_user.id
+      flash[:notice] = "投稿者が削除できます"
+      redirect_to posts_path
+    end
   end
   
   

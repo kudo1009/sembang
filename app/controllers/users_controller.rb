@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
     
+    def index
+        @users = User.all
+    end
+    
     def new
         @user = User.new
     end
@@ -21,5 +25,12 @@ class UsersController < ApplicationController
     def show
         @user = User.find_by(id: params[:id])
     end
+    
+    def favorites
+        @user = User.find_by(id: params[:id])
+        @favorites = Favorite.where(user_id: @user.id)
+    end
+    
+    
     
 end
