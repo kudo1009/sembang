@@ -8,8 +8,6 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by(id: params[:id])
     @user = @post.user
-    @favorite = current_user.favorites.find_by(post_id: @post.id)
-    @favorites_count = Favorite.where(post_id: @post.id).count
   end
   
   def new
