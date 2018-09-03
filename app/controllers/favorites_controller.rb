@@ -12,7 +12,7 @@ class FavoritesController < ApplicationController
   
   def show
     @user = User.find_by(id: params[:id])
-    @favorite = current_user.favorite_posts
+    @favorite_posts = @user.favorite_posts
   end
   
 end
