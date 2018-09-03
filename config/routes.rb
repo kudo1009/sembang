@@ -10,9 +10,8 @@ Rails.application.routes.draw do
     end
   end
   
-  
   resources :favorites, only: [:create, :destroy]
-  get "users/:id/favorites", to: "users#favorites"
+  
   
   
   get "about", to: "home#about"
