@@ -6,7 +6,6 @@
     </div>
     
     <ul class="user-tabs">
-      <li><%= link_to("投稿一覧", "/users/#{@user.id}") %><span class="fa fa-pencil"></li>
       <li class="active"><%= link_to "お気に入り", favorite_path(current_user.id), method: :GET %><span class="fa fa-star notfavorite-btn"></li>
     </ul>
     
