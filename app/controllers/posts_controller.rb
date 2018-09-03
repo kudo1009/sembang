@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find_by(id: params[:id])
+    @favorite = current_user.favorites.find_by(post_id: @post.id)
     @user = @post.user
   end
   
