@@ -6,11 +6,13 @@
     </div>
     
     <ul class="user-tabs">
-      <li class="active"><%= link_to("投稿一覧", "/users/#{@user.id}") %><span class="fa fa-pencil"></li>
-      <li><%= link_to "お気に入り", favorite_path(current_user.id), method: :GET %><span class="fa fa-star notfavorite-btn"></span></li>
+      <li><%= link_to("投稿一覧", "/users/#{@user.id}") %><span class="fa fa-pencil"></li>
+      <li class="active"><%= link_to "お気に入り", favorite_path(current_user.id), method: :GET %><span class="fa fa-star notfavorite-btn"></li>
     </ul>
     
-    <% @user.posts.each do |post| %>
+    <% @favorite_posts.each do |favorite_post| %>
+      <% post = Post.find_by(id: favorite.post_id) %>
+      
       <div class="posts-index-item">
         <div class="post-right">
           <div class="post-user-name">

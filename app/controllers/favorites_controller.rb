@@ -10,6 +10,9 @@ class FavoritesController < ApplicationController
     redirect_to posts_url, notice: "#{favorite.post.user.name}さんの投稿をお気に入り解除しました"
   end
   
-  
+  def show
+    @user = User.find_by(id: params[:id])
+    @favorite = current_user.favorite_posts
+  end
   
 end
