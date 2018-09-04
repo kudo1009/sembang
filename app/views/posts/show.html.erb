@@ -2,7 +2,7 @@
   <div class="container">
     <div class="posts-show-item">
       <div class="post-user-name">
-        <%= link_to(@user.name,"/users/#{@user.id}") %>
+        <%= link_to @user.name, user_path(@user.id) %>
       </div>  
       <p>
         <%= @post.content %>
@@ -22,8 +22,8 @@
       <%= @favorites_count %>
       <% if @post.user_id == @current_user.id %>
        <div class="post-menus">
-        <%= link_to("編集", "/posts/#{@post.id}/edit") %>
-        <%= link_to("削除", "/posts/#{@post.id}", {method: "DELETE"}) %>
+        <%= link_to '編集', edit_post_path(@post.id) %>
+        <%= link_to '削除', post_path(@post.id), {method: "DELETE"} %>
        </div>
       <% end %>
     </div>
