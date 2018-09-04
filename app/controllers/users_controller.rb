@@ -24,6 +24,7 @@ class UsersController < ApplicationController
     
     def show
         @user = User.find_by(id: params[:id])
+        @favorite_posts = @user.favorite_posts
         @favorite = current_user.favorite_posts
     end
     

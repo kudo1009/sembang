@@ -13,9 +13,9 @@
       <div class="posts-index-item">
         <div class="post-right">
           <div class="post-user-name">
-            <%= link_to(favorite_post.user.name, "/users/#{favorite_post.user.id}") %>
+            <%= link_to favorite_post.user.name, user_path(favorite_post.user.id) %>
           </div>
-          <%= link_to(favorite_post.content, "/posts/#{favorite_post.id}") %>
+          <%= link_to favorite_post.content, posts_path(favorite_post.id) %>
         </div>
       </div>
     <% end %>
