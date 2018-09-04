@@ -15,7 +15,7 @@
           <div class="post-user-name">
             <%= link_to favorite_post.user.name, user_path(favorite_post.user.id) %>
           </div>
-          <%= link_to favorite_post.content, posts_path(favorite_post.id) %>
+          <%= link_to favorite_post.content, post_path(favorite_post.id) %>
         </div>
       </div>
     <% end %>
