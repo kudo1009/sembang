@@ -31,8 +31,9 @@ class PostsController < ApplicationController
 
     if params[:send]
       @post.save
+      PostMailer.post_mail(@post).deliver
       flash[:notice] = "投稿を作成しました"
-      redirect_to posts_path
+      redirect_to @post
       return
     end
 
