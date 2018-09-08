@@ -45,8 +45,8 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'https://sleepy-sands-73450.herokuapp.com/' }
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-    user_name: ENV['app108080738@heroku.com'],
-    password: ENV['zo0s3hqh6475'],
+    user_name: ENV['SENDGRID_USERNAME'],
+    password: ENV['SENDGRID_PASSWORD'],
     domain: "heroku.com",
     address: "smtp.SendGrid.net",
     port: 587,
