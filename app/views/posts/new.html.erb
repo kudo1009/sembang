@@ -1,18 +1,6 @@
 <div class="main posts-new">
   <div class="container">
     <h1 class="form-heading">投稿する</h1>
-    <%= form_with(model: Post.new, local: true) do |form| %>
-    <div class="form">
-    <div class="form-body">
-    <% @post.errors.full_messages.each do |message| %>
-    <div class="form-error">
-    <%= message %>
-    </div>
-    <% end %>
-    <%= text_area_tag :content, @post.content %>
-    <input type="submit" value="投稿を確認" class="btn btn-link">
-    </div>
-    </div>
-    <% end %>
+    <%= render 'form', feed: @post %>
   </div>
 </div>

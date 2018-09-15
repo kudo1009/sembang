@@ -2,11 +2,13 @@
   <div class="container">
     <div class="posts-show-item">
       <div class="post-user-name">
+        <%= image_tag @user.image %>
         <%= link_to @user.name, user_path(@user.id) %>
       </div>  
       <p>
         <%= @post.content %>
       </p>
+      <%= image_tag @post.image if @post.image %>
       <div class="post-time">
         <%= @post.created_at %>
       </div>

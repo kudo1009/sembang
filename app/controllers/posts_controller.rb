@@ -12,12 +12,17 @@ class PostsController < ApplicationController
   end
   
   def new
-    @post = Post.new
+    if params[:back]
+      @post = Post.new(post_params)
+    else
+      @post = Post.new
+    end
   end
   
   def create
-    @post = Post.new(content: params[:content],user_id: @current_user.id)
+    @post= Post.new(post_params)
     @post.user_id = current_user.id
+    
 
     if params[:back]
       render :new
@@ -64,7 +69,8 @@ class PostsController < ApplicationController
   end
   
   def confirm
-    @post = Post.new(params[:post])
+    @post = Post.new(post_params)
+    @post.content = params[:content]
     if @post.invalid?
      render :confirm
     else
@@ -79,6 +85,13 @@ class PostsController < ApplicationController
       redirect_to posts_path
     end
   end
+
+  private
+  def post_params
+    params.require(:post).permit(:image, :image_cache, :content)
+  end
   
-  
+  def set_post
+    @post = Post.find(params[:id])
+  end
 end

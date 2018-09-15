@@ -1,11 +1,18 @@
-<%= form_with(model: @post, local: true ,url: choose_new_or_edit ) do |form| %>
-  
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
-  </div>
-  <div class="actions">
-    <%= f.submit '投稿する' %>
+<%= form_with(model: @post, local: true ,url: choose_new_or_edit ) do |f| %>
+
+  <div class="form">
+   <div class="form-body">
+       <% @post.errors.full_messages.each do |message| %>
+      <div class="form-error">
+       <%= message %>
+      </div>
+      <% end %>
+     <p>画像を投稿</p>
+     <%= image_tag(@post.image.url,:size =>'350x200') if @post.image.url %>
+     <%= f.file_field :image, id: :post_image %>
+     <%= text_area_tag :content, @post.content %>
+    <input type="submit" value="投稿を確認" class="btn btn-link">
+   </div>
   </div>
   
 <% end %>

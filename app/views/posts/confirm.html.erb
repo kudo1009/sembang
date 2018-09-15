@@ -1,21 +1,33 @@
 <div class="main posts-new">
   <div class="container">
-  <h1 class="form-heading">投稿内容を確認してください</h1>
-  <%= form_with(model: @post, url: posts_path, local: true) do |form| %>
-  <div class="form">
+   <h1 class="form-heading">投稿内容を確認してください</h1>
+
+   <%= form_with(model: @post, url: posts_path, local: true, multipart: true) do |f| %>
+   <div class="form">
     <div class="form-body">
-    <div class="field">
+     <div class="field">
       <%= @post.content %>
-      <%= hidden_field_tag :content, @post.content %>
-    </div>
-    <div class="actions">
+      <%= f.hidden_field :content %>
+     </div>
+
+     <div class="field">
+      <%= image_tag(@post.image,:size =>'350x200') %>
+      <%= f.hidden_field :image_cache %>
+     </div>
+
+     <div class="actions">
       <%= submit_tag '投稿する', name: 'send',class: "btn btn-link"%>
-    </div>
-    <div class="actions">
+     </div>
+   <% end %>
+
+   <%= form_with(model: @post, url: new_post_path, local: true, method:"get") do |f| %>
+     <div class="actions">
+      <%= f.hidden_field :content %>
+      <%= f.hidden_field :image_cache %>
       <%= submit_tag '戻る', name: 'back',class: "btn btn-link" %>
+     </div>
     </div>
-    </div>
-    </div>
-　<% end %>
+   </div>
+　 <% end %>
 　</div>
 </did>

@@ -18,8 +18,32 @@ class UsersController < ApplicationController
         end
     end
     
+    def edit
+        @user = User.find_by(id: params[:id])
+    end
+    
+    def update
+        @user = User.find_by(id: params[:id])
+        @user.name = params[:name]
+        @user.email = params[:email]
+        @user.password = params[:password]
+        if @user.save
+            flash[:notice] = "ユーザー情報を編集しました"
+            redirect_to user_path
+        else
+            render :edit
+        end
+    end
+    
+    def destroy
+        @user = User.find_by(id: params[:id])
+        @user.destroy
+        flash[:notice] = "プロフィールを削除しました"
+        redirect_to root_path
+    end
+    
     def user_params
-        params.require(:user).permit(:name, :email, :password, :password_confirmation)
+        params.require(:user).permit(:name, :email, :password, :password_confirmation, :image)
     end
     
     def show

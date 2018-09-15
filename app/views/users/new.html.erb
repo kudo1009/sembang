@@ -9,7 +9,9 @@
           </div>
         <% end %>
         
-        <%= form_with(model: @user, local: true) do |f| %> 
+        <%= form_with(model: @user, local: true, multipart: true) do |f| %> 
+          <p>プロフィール画像</p>
+          <%= f.file_field :image %>
           <p>ユーザー名</p>
           <%= f.text_field :name %>
           <p>メールアドレス</p>
