@@ -13,6 +13,3 @@ module Berborak
   config.assets.initialize_on_precompile = false
   end
 end
-Rails.application.config.assets.paths << Rails.root.join("vendor", "original_assets", "images")
-Rails.application.config.assets.paths << Rails.root.join("vendor", "original_assets", "stylesheets")
-Rails.application.config.assets.paths << Rails.root.join("vendor", "original_assets", "javascripts")
