@@ -7,9 +7,10 @@
        <%= message %>
       </div>
       <% end %>
+     <%= image_tag(@post.image.url,:size =>'250x200') if @post.image.url %>
      <p>画像を投稿</p>
-     <%= image_tag(@post.image.url,:size =>'350x200') if @post.image.url %>
      <%= f.file_field :image, id: :post_image %>
+     <%= f.hidden_field :image_cache %>
      <%= text_area_tag :content, @post.content %>
     <input type="submit" value="投稿を確認" class="btn btn-link">
    </div>

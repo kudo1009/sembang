@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user, only: [:new, :show, :edit]
+  before_action :authenticate_user, only: [:new, :show, :edit,:update]
   
   def index
     @posts = Post.all.order(created_at: :desc)
@@ -47,14 +47,15 @@ class PostsController < ApplicationController
   
   def edit
     @post = Post.find_by(id: params[:id])
+    @post.image.cache! unless @post.image.blank?
   end
   
   def update
     @post = Post.find_by(id: params[:id])
-    @post.content = params[:content]
-    if @post.save
+    
+    if @post.update(post_params)
       flash[:notice] = "投稿を編集しました"
-      redirect_to posts_path
+      redirect_to post_path
     else
       render :edit
     end
@@ -88,10 +89,11 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:image, :image_cache, :content)
+    params.require(:post).permit(:image, :image_cache, :remove_image, :content,)
   end
   
   def set_post
     @post = Post.find(params[:id])
   end
+  
 end

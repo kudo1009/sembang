@@ -20,6 +20,7 @@ class UsersController < ApplicationController
     
     def edit
         @user = User.find_by(id: params[:id])
+        @user.image.cache! unless @user.image.blank?
     end
     
     def update
@@ -27,7 +28,7 @@ class UsersController < ApplicationController
         @user.name = params[:name]
         @user.email = params[:email]
         @user.password = params[:password]
-        if @user.save
+        if @user.update(user_params)
             flash[:notice] = "ユーザー情報を編集しました"
             redirect_to user_path
         else
@@ -51,8 +52,6 @@ class UsersController < ApplicationController
         @favorite_posts = @user.favorite_posts
         @favorite = current_user.favorite_posts
     end
-    
-    
     
     
     

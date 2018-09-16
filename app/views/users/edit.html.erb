@@ -10,6 +10,10 @@
         <% end %>
       
         <%= form_with(model: @user, url: user_path, local: true) do |form| %>
+          <p>現在のプロフィール画像</p>
+          <%= image_tag @user.image,:size =>'100x100' %>
+          <%= form.file_field :image %>
+          <%= form.hidden_field :image_cache %>
           <p>ユーザー名</p>
           <input name="name" value="<%= @user.name %>">
           <p>メールアドレス</p>
