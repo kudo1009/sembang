@@ -17,7 +17,7 @@ Rails.application.configure do
   config.assets.js_compressor = :uglifier
   
 
-  config.assets.compile = false
+  config.assets.compile = true
 
   
   config.log_level = :debug
@@ -42,7 +42,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  config.action_mailer.default_url_options = { host: 'https://sleepy-sands-73450.herokuapp.com/' }
+  config.action_mailer.default_url_options = { host: 'https://intense-dusk-32516.herokuapp.com/' }
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
     user_name: ENV['SENDGRID_USERNAME'],
