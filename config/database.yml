@@ -23,6 +23,6 @@ production:
   database: berborak_production
   username: berborak
   password: <%= ENV['BERBORAK_DATABASE_PASSWORD'] %>
-  adapter: postgresql
+  adapter: mysql2
   database: db/production.pg
  
