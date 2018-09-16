@@ -1,6 +1,7 @@
 Rails.application.configure do
   
   config.cache_classes = true
+  config.serve_static_files = false
 
   
   config.eager_load = true
@@ -12,7 +13,9 @@ Rails.application.configure do
   config.read_encrypted_secrets = true
 
   
-  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  #config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  config.public_file_server.enabled = true
+
 
   config.assets.js_compressor = :uglifier
   
