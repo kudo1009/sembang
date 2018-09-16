@@ -24,5 +24,5 @@ production:
   username: berborak
   password: <%= ENV['BERBORAK_DATABASE_PASSWORD'] %>
   adapter: postgresql
-  database: mydatabase
+  database: db/production.pg
  
