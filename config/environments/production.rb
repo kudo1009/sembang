@@ -21,6 +21,7 @@ Rails.application.configure do
   
 
   config.assets.compile = true
+  config.serve_static_assets = true
 
   
   config.log_level = :debug
