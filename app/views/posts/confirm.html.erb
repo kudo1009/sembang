@@ -7,13 +7,11 @@
     <div class="form-body">
      <div class="field">
       <%= @post.content %>
-      <%= f.hidden_field :content %>
-     </div>
-
-     <div class="field">
+      <%= f.hidden_field :content %><br>
       <%= image_tag(@post.image,:size =>'350x200') %>
       <%= f.hidden_field :image_cache %>
      </div>
+
 
      <div class="actions">
       <%= submit_tag '投稿する', name: 'send',class: "btn btn-link"%>
