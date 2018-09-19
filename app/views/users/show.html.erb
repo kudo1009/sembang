@@ -4,8 +4,10 @@
       <%= image_tag @user.image %><br>
       <h2><%= @user.name %></h2>
       <p><%= @user.email %></p>
-      <%= link_to '編集', edit_user_path(@user.id) %>
-      <%= link_to '削除', user_path(@user.id), {method: "DELETE"} %>
+      <% if @user.id == @current_user.id %>
+       <%= link_to '編集', edit_user_path(@user.id) %>
+       <%= link_to '削除', user_path(@user.id), {method: "DELETE"} %>
+      <% end %>
     </div>
     
     <ul class="user-tabs">
@@ -14,6 +16,9 @@
     
     <% @user.posts.each do |post| %>
       <div class="posts-index-item">
+        <div class="post-left">
+          <%= image_tag @user.image %>
+        </div>
         <div class="post-right">
           <div class="post-user-name">
             <%= link_to post.user.name, user_path(post.user.id) %>

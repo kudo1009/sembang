@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BolehBolehApp</title>
+    <title>Sembang</title>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -12,7 +12,7 @@
   <body>
     <header>
       <div class="header-logo">
-        <%= link_to "BolehBoleh", root_path ,class: "btn btn-link"  %>
+        <%= link_to "Sembang", root_path ,class: "btn btn-link"  %>
       </div>
       <ul class="header-menus">
         <% if logged_in? %>
@@ -36,10 +36,10 @@
          </li>
         <% else %>
          <li>
-          <%= link_to "BolehBolehとは", about_path %>
+          <%= link_to "Sembangとは", about_path %>
          </li>
          <li>
-          <%= link_to "新規登録", new_user_path %>
+          <%= link_to "ユーザー登録", new_user_path %>
          </li>
          <li>
           <%= link_to "ログイン", new_session_path %>
