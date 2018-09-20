@@ -4,6 +4,7 @@
       <div class="posts-index-item col-md-6 col-xs-12">
         <div class="post-right">
           <%= link_to post.content, post_path(post.id) %>
+          <%= image_tag post.image.to_s ,:size =>'100x60'%>
         </div>  
       </div>
     <% end %>
