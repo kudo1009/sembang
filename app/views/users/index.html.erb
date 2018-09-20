@@ -1,8 +1,8 @@
 <div class="main users-index">
-  <div class="container">
+  <div class="row">
     <h1 class="users-heading">ユーザー一覧</h1>
     <% @users.each do |user| %>
-      <div class="users-index-item">
+      <div class="users-index-item col-md-6 col-xs-12">
         <div class="user-left">
           <%= image_tag user.image.to_s %>
         </div>
