@@ -64,6 +64,8 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     crass (1.0.4)
+    data-confirm-modal (1.6.2)
+      railties (>= 3.0)
     debug_inspector (0.0.3)
     erubi (1.7.1)
     execjs (2.7.0)
@@ -199,6 +201,7 @@ DEPENDENCIES
   binding_of_caller
   carrierwave
   coffee-rails (~> 4.2)
+  data-confirm-modal
   jbuilder (~> 2.5)
   jquery-ui-rails
   letter_opener_web
