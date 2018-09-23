@@ -72,5 +72,11 @@
       </div>
     <% end %>
     <%= yield %>
+    <script>
+  　 　 $( document ).ready(function() {
+        $('#notice').fadeOut(3000);
+    });
+    </script>
+    <p id="notice"><%= notice %></p>
   </body>
 </html>
